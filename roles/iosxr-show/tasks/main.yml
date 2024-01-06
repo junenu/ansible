@@ -1,0 +1,16 @@
+- name: ioscxr show 
+  iosxr_command:
+      commands:
+        - "{{ item }}"
+  with_items: " {{ show_commands }}"
+  register: result
+    
+  vars:
+    show_commands:
+    - "show version"
+    - "show running-config"
+
+- name: Save show_result to log file
+  template:
+    src: ./templates/show.j2
+    dest: ./roles/iosxr-show/logs/{{ inventory_hostname }}.log

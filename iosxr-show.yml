@@ -1,0 +1,6 @@
+- name: ioscxr show 
+  hosts: iosxr
+  gather_facts: no
+
+  roles:
+    - iosxr-show
