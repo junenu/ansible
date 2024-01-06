@@ -6,7 +6,7 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 
 ROM: GRUB, Version 1.99(0), DEV RELEASE
 
-xrv2 uptime is 59 minutes
+xrv2 uptime is 1 hour, 3 minutes
 System image file is "bootflash:disk0/xrvr-os-mbi-6.3.1/mbixrvr-rp.vm"
 
 cisco IOS XRv Series (Pentium Celeron Stepping 3) processor with 3145215K bytes of memory.
@@ -85,4 +85,32 @@ iosxr-security, V 6.3.1[Default], Cisco Systems, at disk0:iosxr-security-6.3.1
 xrvr-fullk9-x, V 6.3.1[Default], Cisco Systems, at disk0:xrvr-fullk9-x-6.3.1
     Built on Thu Sep 14 02:24:48 UTC 2017
     By iox-lnx-052 in /auto/srcarchive11/production/6.3.1/xrvr/workspace for pie
+
+
+=============show running-config=============
+
+Building configuration...
+!! IOS XR Configuration 6.3.1
+!! Last configuration change at Sat Jan  6 12:53:43 2024 by junenu
+!
+hostname xrv2
+domain name wanpachi.dev
+username wanpachi
+ group netadmin
+ secret 5 $1$N/4Q$nHkpxgX2zRv17Zkw16zu11
+!
+interface MgmtEth0/0/CPU0/0
+ ipv4 address 192.168.11.222 255.255.254.0
+!
+interface GigabitEthernet0/0/0/0
+ shutdown
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+ssh server v2
+end
 
