@@ -1,0 +1,31 @@
+
+=============show running-config=============
+
+Building configuration...
+!! IOS XR Configuration 6.3.1
+!! Last configuration change at Sat Jan  6 12:51:20 2024 by junenu
+!
+hostname xrv1
+domain name wanpachi.dev
+username admin
+ secret 9 admin
+!
+username wanpachi
+ group netadmin
+ secret 5 $1$jEnm$qWie7MPm76HA9NuLAUDw61
+!
+interface MgmtEth0/0/CPU0/0
+ ipv4 address 192.168.11.221 255.255.254.0
+!
+interface GigabitEthernet0/0/0/0
+ shutdown
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+ssh server v2
+end
+

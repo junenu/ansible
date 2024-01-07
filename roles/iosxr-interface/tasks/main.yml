@@ -1,0 +1,47 @@
+- name: ioscxr show 
+  iosxr_command:
+      commands:
+        - "{{ item }}"
+  with_items: " {{ show_commands }}"
+  register: result
+    
+  vars:
+    show_commands:
+    - "show running-config"
+
+- name: Save show_result to log file
+  template:
+    src: ./templates/show.j2
+    dest: ./roles/iosxr-interface/logs/{{ inventory_hostname }}_before.log
+
+- name: Configure Ethernet interfaces
+  iosxr_interfaces:
+    config:
+      - name: GigabitEthernet 0/0/0/0
+        description: Configured by Ansible
+        enabled: true
+    state: merged
+  
+- name: Configure Loopback interfaces
+  iosxr_interfaces:
+    config:
+      - name: loopback 0
+        description: Configured by Ansible
+        enabled: true
+    state: merged
+
+- name: ioscxr show 
+  iosxr_command:
+      commands:
+        - "{{ item }}"
+  with_items: " {{ show_commands }}"
+  register: result
+    
+  vars:
+    show_commands:
+    - "show running-config"
+
+- name: Save show_result to log file
+  template:
+    src: ./templates/show.j2
+    dest: ./roles/iosxr-interface/logs/{{ inventory_hostname }}_after.log

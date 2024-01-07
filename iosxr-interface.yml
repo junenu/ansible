@@ -1,0 +1,6 @@
+- name: ioscxr interface
+  hosts: iosxr
+  gather_facts: no
+
+  roles:
+    - iosxr-interface
