@@ -1,3 +1,11 @@
+# This playbook performs the following tasks:
+# 1. Executes the 'show running-config' command on the IOS-XR device.
+# 2. Saves the output of the 'show running-config' command to a log file.
+# 3. Configures Ethernet interfaces on the IOS-XR device.
+# 4. Configures Loopback interfaces on the IOS-XR device.
+# 5. Executes the 'show running-config' command again.
+# 6. Saves the output of the second 'show running-config' command to a log file.
+
 - name: ioscxr show 
   iosxr_command:
       commands:
