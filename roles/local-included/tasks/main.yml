@@ -5,3 +5,13 @@
 - name: Debug information
   debug:
     var: users
+
+- name: Debug information
+  debug:
+    msg: "{{ item }}"
+  loop: "{{ users }}"
+
+- name: Debug information
+  debug:
+    msg: "{{ item.name }}"
+  loop: "{{ users }}"
