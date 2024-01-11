@@ -1,0 +1,7 @@
+- name: Include variables from users.test
+  include_vars:
+    file: ../../../dummy/users.test
+
+- name: Debug information
+  debug:
+    var: users

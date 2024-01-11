@@ -1,0 +1,6 @@
+- name: included test
+  hosts: localhost
+  gather_facts: no
+
+  roles:
+    - local-included

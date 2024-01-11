@@ -1,0 +1,7 @@
+users:
+  - name: char
+    age: 33
+    key: 'marioaaaaaa'
+  - name: str
+    age: 42
+    key: 'mariobbbbbb'
